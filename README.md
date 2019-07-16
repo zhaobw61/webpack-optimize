@@ -16,3 +16,26 @@
 - import 在生产环境下 会自动去除掉没用的代码
 - tree-shaking 把没有用到的代码 自动删除掉。
 - 在webpack会自动帮忙省略一些代码
+
+- 抽离公共代码：splitChunks
+
+```
+optimization:{
+    splitChunks:{ // 分割代码块
+        cacheGroups:{ // 缓存组
+            common:{ // 公共模块
+                chunks:'initial',
+                minSize:0,
+                minChunks:2 // 引用次数
+            },
+            vendor:{
+                priority:1,
+                test:/node_modules/,
+                chunks:'initial',
+                minSize:0,
+                minChunks:2 // 引用次数
+            }
+        }    
+    }
+}
+```
