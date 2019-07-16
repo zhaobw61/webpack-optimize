@@ -39,3 +39,6 @@ optimization:{
     }
 }
 ```
+
+- 热更新：只是更新组件一部分。
+> 插件：NameModulesPlugin、HotModuleReplacementPlugin
