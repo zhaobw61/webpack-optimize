@@ -12,3 +12,7 @@
 
 - happyPack
 > 实现多线程打包
+
+- import 在生产环境下 会自动去除掉没用的代码
+- tree-shaking 把没有用到的代码 自动删除掉。
+- 在webpack会自动帮忙省略一些代码
