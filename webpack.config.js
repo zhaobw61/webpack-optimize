@@ -1,5 +1,6 @@
 let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let webpack = require('webpack');
 module.exports = {
     mode:'development',
     entry:'./src/index.js',
@@ -8,6 +9,8 @@ module.exports = {
         rules:[
             {
                 test:/\.js$/,
+                exclude:/node_modules/,
+                include:path.resolve('src'),
                 use:{
                     loader:'babel-loader',
                     options:{
@@ -25,6 +28,7 @@ module.exports = {
         path:path.resolve(__dirname,'dist')
     },
     plugins:[
+        new webpack.IgnorePlugin(/\.\/locale/,/moment/), // 忽略moment包里的对locale引入
         new HtmlWebpackPlugin({
             template:'./public/index.html'
         })
